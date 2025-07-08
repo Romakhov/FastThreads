@@ -6,7 +6,7 @@ from openai_utils import threadsify_text
 from datetime import datetime
 import sys
 sys.path.append('threads-rag')
-from threads-rag.index import get_rag_results
+from threads_rag.index import get_rag_results
 from telegram.constants import ChatAction
 
 FREE_LIMIT = 5
