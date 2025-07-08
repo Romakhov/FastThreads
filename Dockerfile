@@ -10,8 +10,11 @@ COPY requirements.txt .
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Копируем всё содержимое проекта
+# Копируем весь проект
 COPY . .
+
+# Указываем переменную окружения PYTHONPATH
+ENV PYTHONPATH="${PYTHONPATH}:/app"
 
 # Запускаем бота
 CMD ["python", "bot.py"]
