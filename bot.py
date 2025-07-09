@@ -1,13 +1,24 @@
+import logging
+import sys
+from datetime import datetime
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, ContextTypes, filters, CallbackQueryHandler
+from telegram.constants import ChatAction
+
+# 🟡 Настройка логирования
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
+logger.info("🚀 Бот запускается...")
+
+# далее импортируешь свои модули
 from config import TELEGRAM_TOKEN, ADMIN_IDS
 from db import init_db, get_user, increment_usage, reset_monthly_usage, update_user
 from openai_utils import threadsify_text
-from datetime import datetime
-import sys
 sys.path.append('threads-rag')
 from threads_rag.index import get_rag_results
-from telegram.constants import ChatAction
 
 FREE_LIMIT = 5
 PRO_LIMIT = 500
