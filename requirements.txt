@@ -4,8 +4,10 @@ aiohttp
 dataclasses-json
 faiss-cpu
 fastapi
-langchain
-langchain-openai
+langchain==0.1.16
+langchain-core==0.1.42
+langchain-community==0.0.32
+langchain-openai==0.1.3
 langsmith
 nltk
 numpy
